@@ -1,69 +1,18 @@
-%普通物理实验三林伟华老师要求的模板
-%武汉大学物理科学与技术学院18级詹睿知
-%改编自周澳同学转发的电子信息学院实验报告模板
-\documentclass{whureport}
-\usepackage{booktabs}%三线表
-\usepackage{setspace}
-\usepackage{stfloats}
-\usepackage{graphicx}
-\usepackage{datetime}
-\usepackage{fancyhdr}
-\usepackage{caption}
-\usepackage{makecell}
-\usepackage[breaklinks,colorlinks,linkcolor=black,
-citecolor=black,urlcolor=black]{hyperref}
+%%%% 第一版 2020.10
+%此文档为普通物理实验三林伟华老师要求的物理实验报告模板
+%作者：武汉大学物理科学与技术学院18级詹睿知
+%参考自电子信息学院实验报告模板
+%%%% 第二版 2022.8
+%更改优化了documentclass
+\documentclass{WHUReport}
+
+%%%% 以下填写学生信息及实验题目
 \newcommand{\major}{物理学}
 \newcommand{\name}{姓名}
 \newcommand{\stuid}{学号}
 \newcommand{\Name}{NAME}
-\newcommand{\loc}{None}
 \newcommand{\course}{普通物理实验三}
-\newcommand{\grades}{100}
-\newcommand{\newtitle}{实验名}
-\newcommand{\exptype}{None}
-\usepackage{multicol}
-\usepackage{titlesec}
-%\usepackage{fontspec}
-\setmainfont{Times New Roman}
-\newfontfamily\sectionef{Times New Roman}
-\newCJKfontfamily\sectioncf{kaishu}
-\titleformat{\section}{\raggedright\normalsize\bfseries}{}{-1em}{}
-\titleformat*{\subsection}{\raggedright\small\bfseries}
-\titleformat*{\subsubsection}{\raggedright\small\sectioncf}
-\renewcommand\thesection{\arabic{section}}
-\setlength{\parindent}{2em}
-\lstset{language=Matlab}
-\usepackage[algo2e,ruled,vlined]{algorithm2e}
-\usepackage{ifthen}%这个宏包提供逻辑判断命令
-\newboolean{first}%引入布尔变量
-\setboolean{first}{true}%将布尔变量设置为true
-\captionsetup{font={small}}
-\fancypagestyle{maincontent}{
-	\fancyhf{}  %清空页眉页脚设置
-	\fancyhead[EL, OR]{\thepage}
-	\fancyhead[EC]{\newtitle}
-	\fancyhead[OC]{\newtitle}
-	\renewcommand\headrulewidth{0pt}
-}
-
-\fancypagestyle{firstpage}{
-	\fancyhf{}  
-}
-
-\newcommand{\makefirstpageheadrule}{
-	\makebox[0pt][l]{\rule[0.55\baselineskip]{\headwidth}{0.2pt}}%上0.5pt，下0.2pt
-	\rule[0.7\baselineskip]{\headwidth}{0.5pt}
-}
-
-\newcommand{\makeheadrule}{
-	\rule[0.7\baselineskip]{\headwidth}{0.75pt}
-}
-
-\renewcommand{\headrule}{
-	\ifthenelse{\boolean{first}}{\makeheadrule}
-	{\makefirstpageheadrule}
-}
-
+\newcommand{\newtitle}{实验题目}
 
 \begin{document}
 \pagestyle{maincontent} 
@@ -76,6 +25,7 @@ citecolor=black,urlcolor=black]{hyperref}
 \zihao{5} \kaishu 武汉大学物理科学与技术学院，湖北省 武汉市 430072\\
 \end{center}
 \zihao{-5}\textbf{摘\quad 要:}
+%在此处修改中文摘要
 摘要内容。概括地陈述论文研究的目的、方法、结果、结论，要求200～300字。应排除本学科领域已成为常识的内容；不要把应在引言中出现的内容写入摘要，不引用参考文献；不要对论文内容作诠释和评论。不得简单重复题名中已有的信息。用第三人称，不使用“本文”、“作者”等作为主语。使用规范化的名词术语，新术语或尚无合适的汉文术语的，可用原文或译出后加括号注明。除了无法变通之外，一般不用数学公式和化学结构式，不出现插图、表格。缩略语、略称、代号，除了相邻专业的读者也能清楚理解的以外，在首次出现时必须加括号说明。结构严谨，表达简明，语义确切。\\
 \zihao{-5}\textbf{关键词：}关键词1；关键词2；关键词3；关键词4
 ~\\
@@ -92,13 +42,13 @@ citecolor=black,urlcolor=black]{hyperref}
 \begin{multicols}{2}
 	引言内容。引言作为论文的开场白，应以简短的篇幅介绍论文的写作背景和目的，以及相关领域内前人所做的工作和研究概况，说明本研究与前人工作的关系，目前研究的热点、存在的问题及作者工作的意义。1、开门见山，不绕圈子。避免大篇幅地讲述历史渊源和立题研究过程。2、言简意赅，突出重点。不应过多叙述同行熟知的及教科书中的常识性内容，确有必要提及他人的研究成果和基本原理时，只需以引用参考文献的形势标出即可。在引言中提示本文的工作和观点时，意思应明确，语言应简练。3、引言的内容不要与摘要雷同，也不是摘要的注释。4、引言要简短，最好不要分段论述，不要插图、列表和数学公式。
 	\section{量的书写规则}
-	正文内容。正文、图表中的变量都要用斜体字母，对于矢量和张量使用黑斜体，只有pH采用正体；使用新标准规定的符号；量的符号为单个拉丁字母或希腊字母；不能把量符号作为纯数使用；不能把化学符号作为量符号使用，代表物质的符号表示成右下标，具体物质的符号及其状态等置于与主符号齐线的圆括号中\cite{snowflakes}。
+	正文内容。正文、图表中的变量都要用斜体字母，对于矢量和张量使用黑斜体，只有pH采用正体；使用新标准规定的符号；量的符号为单个拉丁字母或希腊字母；不能把量符号作为纯数使用；不能把化学符号作为量符号使用，代表物质的符号表示成右下标，具体物质的符号及其状态等置于与主符号齐线的圆括号中\upcite{snowflakes}。
 	
 	注意区分量的下标字母的正斜体：凡量符号和代表变动性数字及坐标轴的字母作下标，采用斜体字母。
 	
 	正文中引用参考文献的标注方法，在引用处对引用的文献，按它们在论著中出现的先后用阿拉伯数字连续排序，将序号置于方括号内，并视具体情况把序号作为上角标或作为语句的组成部分。
 	\subsection{单位的书写规则}
-	正文内容。单位符号无例外的采用正体字母\cite{jupyter}。注意区分单位符号的大小写：一般单位符号为小写体，来源于人名的单位符号首字母大写。体积单位升的符号为大写L。
+	正文内容。单位符号无例外的采用正体字母\upcite{jupyter}。注意区分单位符号的大小写：一般单位符号为小写体，来源于人名的单位符号首字母大写。体积单位升的符号为大写L。
 	\subsubsection{表格的规范化}
 	正文内容。表格的设计应该科学、明确、简洁，具有自明性。表格应采用三线表，项目栏不宜过繁，小表宽度小于7.5 cm，大表宽度为12～15cm 。
 	
