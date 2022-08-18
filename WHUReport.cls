@@ -1,16 +1,42 @@
-\LoadClass{article}
-\RequirePackage{xeCJK}
+%%% Version 2.0 2022.8 ----by snowflakes
+\ProvidesClass{WHUReport}
+%%% ---- Load class ---- %%%
+\LoadClass[a4paper,12pt]{article}% A4 size, article type
+
+%%% ---- Load Packages ---- %%%
+% For Chinese characters, both XeCJK and ctex are ok
+%\RequirePackage{xeCJK}
 \RequirePackage{ctex}
-\RequirePackage{graphicx}
+
+% For overall page settings
 \RequirePackage{geometry}
-\RequirePackage{titlesec}
 \RequirePackage{fancyhdr}
-\RequirePackage{enumitem}
+\usepackage{setspace}
 \RequirePackage{listings}
-\RequirePackage{xcolor}
-\RequirePackage{epstopdf}
-\RequirePackage{subcaption}
+\usepackage{makecell}
+\usepackage{multicol}
+
+% For inserting figures
+\RequirePackage{graphicx}
 \RequirePackage{float}%强制图片
+\RequirePackage{epstopdf}
+
+% Other settings: table, bib, math
+\RequirePackage{xcolor}
+\usepackage{booktabs}%三线表
+\usepackage{stfloats}
+\usepackage{datetime}
+\usepackage{natbib}
+\usepackage{amsmath}%\cfrac{分子}{分母}
+\usepackage[breaklinks,colorlinks,linkcolor=black,
+citecolor=black,urlcolor=black]{hyperref}
+\newcommand{\exptype}{None}
+
+% For Subtitle
+\RequirePackage{enumitem}
+\RequirePackage{subcaption}
+\usepackage{caption}
+\usepackage{titlesec}
 \linespread{1.2}
 \geometry{top=1in,bottom=1in,left=1in,right=1in}
 \setcounter{secnumdepth}{2}
@@ -85,6 +111,49 @@
   breaklines=true,
   breakatwhitespace=true,
   tabsize=2,
+}
+
+\setmainfont{Times New Roman}
+\newfontfamily\sectionef{Times New Roman}
+\newCJKfontfamily\sectioncf{kaishu}
+\titleformat{\section}{\raggedright\normalsize\bfseries}{}{-1em}{}
+\titleformat*{\subsection}{\raggedright\small\bfseries}
+\titleformat*{\subsubsection}{\raggedright\small\sectioncf}
+\renewcommand\thesection{\arabic{section}}
+\newcommand{ \upcite}[1]{\textsuperscript{\textsuperscript{\citep{#1} } }} % 设置上标显示参考文献编号的命令
+\setlength{\parindent}{2em}
+\lstset{language=Matlab}
+
+% For header
+\usepackage[algo2e,ruled,vlined]{algorithm2e}
+\usepackage{ifthen}%这个宏包提供逻辑判断命令
+\newboolean{first}%引入布尔变量
+\setboolean{first}{true}%将布尔变量设置为true
+\captionsetup{font={small}}
+\fancypagestyle{maincontent}{
+	\fancyhf{}  %清空页眉页脚设置
+	\fancyhead[EL, OR]{\thepage}
+	\fancyhead[EC]{\newtitle}
+	\fancyhead[OC]{\newtitle}
+	\renewcommand\headrulewidth{0pt}
+}
+
+\fancypagestyle{firstpage}{
+	\fancyhf{}  
+}
+
+\newcommand{\makefirstpageheadrule}{
+	\makebox[0pt][l]{\rule[0.55\baselineskip]{\headwidth}{0.2pt}}%上0.5pt，下0.2pt
+	\rule[0.7\baselineskip]{\headwidth}{0.5pt}
+}
+
+\newcommand{\makeheadrule}{
+	\rule[0.7\baselineskip]{\headwidth}{0.75pt}
+}
+
+\renewcommand{\headrule}{
+	\ifthenelse{\boolean{first}}{\makeheadrule}
+	{\makefirstpageheadrule}
 }
 
 % \pagestyle{fancy}
