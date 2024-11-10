@@ -47,8 +47,8 @@ citecolor=black,urlcolor=black]{hyperref}
 \setlist[clause]{fullwidth,itemindent=2em,label=(\arabic*)}
 \newCJKfontfamily[song]\song{SimSun}[AutoFakeBold]
 
-\setmonofont{Lucida Console}
-\setsansfont{SimHei}
+%\setmonofont{Lucida Console}
+%\setsansfont{SimHei}
 % \titleformat*{\section}{\large\bfseries}
 % \titleformat*{\subsection}{\normalsize\bfseries}
 % \titleformat*{\subsubsection}{\normalsize}
@@ -116,6 +116,8 @@ citecolor=black,urlcolor=black]{hyperref}
 \setmainfont{Times New Roman}
 \newfontfamily\sectionef{Times New Roman}
 \newCJKfontfamily\sectioncf{kaishu}
+\setCJKfamilyfont{simkai}{SIMKAI.TTF}
+\renewcommand{\kaishu}{\CJKfamily{simkai}}
 \titleformat{\section}{\raggedright\normalsize\bfseries}{}{-1em}{}
 \titleformat*{\subsection}{\raggedright\small\bfseries}
 \titleformat*{\subsubsection}{\raggedright\small\sectioncf}
