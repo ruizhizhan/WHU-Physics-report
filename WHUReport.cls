@@ -27,6 +27,7 @@
 \usepackage{stfloats}
 \usepackage{datetime}
 \usepackage{natbib}
+\usepackage{gbt7714}
 \usepackage{amsmath}%\cfrac{分子}{分母}
 \usepackage[breaklinks,colorlinks,linkcolor=black,
 citecolor=black,urlcolor=black]{hyperref}
