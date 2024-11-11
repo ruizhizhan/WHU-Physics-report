@@ -1,52 +1,126 @@
-﻿
 
-@article{snowflakes,
-  title = {文献题名},
-  isbn = {文献编号},
-  address = {出版地点},
-  publisher = {{出版社}},
-  date = {出版年月},
-  editor = {作者},
-  pages = {起始页码-结束页码}
+
+@article{1 ,
+author={作者},
+title={文献题名},
+organization={武汉大学},
+journal={刊名},
+year={出版年},
+month={},
+volume={卷},
+number={期},
+pages={xxx-xxx},
 }
 
-@article{jupyter,
-  title = {文献题名},
-  isbn = {文献编号},
-  address = {出版地点},
-  publisher = {{出版社}},
-  date = {出版年月},
-  editor = {作者},
-  pages = {起始页码-结束页码}
+@inproceedings{2 ,
+author={作者},
+editor={论文集主要责任者},
+title={析出文献题名},
+booktitle={论文集名},
+year={出版年},
+address={武汉},
+month={},
+organization={武汉大学},
 }
 
-@article{notebook,
-  title = {文献题名},
-  isbn = {文献编号},
-  address = {出版地点},
-  publisher = {{出版社}},
-  date = {出版年月},
-  editor = {作者},
-  pages = {起始页码-结束页码}
+@book{3,
+    author = {作者},
+    title = {书名},
+    edition={版本(第一版不写)},
+    pages={xxx-xxx},
+    address={武汉},
+    publisher = {武汉大学},
+    year = {出版年}
 }
 
-@article{physics,
-  title = {文献题名},
-  isbn = {文献编号},
-  address = {出版地点},
-  publisher = {{出版社}},
-  date = {出版年月},
-  editor = {作者},
-  pages = {起始页码-结束页码}
+@mastersthesis{4,
+author={作者},
+title={文献题名},
+school={武汉: 武汉大学},
+year={出版年},
+month={},
 }
 
-@article{math,
-  title = {文献题名},
-  isbn = {文献编号},
-  address = {出版地点},
-  publisher = {{出版社}},
-  date = {出版年月},
-  editor = {作者},
-  pages = {起始页码-结束页码}
+@techreport{5,
+    author = {作者},
+    title = {文献题名},
+    institution = {报告题名及编号},
+    year ={出版年} 
+}
+@online{6,
+author={作者},
+title = {文献题名},
+url={https://www.whu.edu.cn/},
+date={发表或更新日期},
+urldate={引用日期}
 }
 
+@patent{7,
+author = {专利所有者},
+title = {专利题名},
+number={CN102646918A},
+year = {2012},
+}
+
+@standard{8,
+title = {标准名称},
+edition = {GB/T 44605-2024},
+}
+
+%%%Word模板中的要求
+[1] 作者. 文献题名[J]. 刊名，出版年，卷(期): xxx-xxx （起止页码）.
+[2] 作者. 析出文献题名[C]//论文集主要责任者. 论文集名. 出版地：出版者，出版年.
+[3] 作者. 书名[M]. 版本(第一版不写). 出版地：出版者，出版年: xxx-xxx. （引用的起止页码）
+[4] 作者. 文献题名[D]. 保存地点: 保存单位,出版年.
+[5] 作者. 文献题名[R]. 报告题名及编号，出版年.
+[6] 作者. 文献题名[EB/OL]. 电子文献的出处或可获得地址，发表或更新日期/引用日期. 
+[7] 专利所有者. 专利题名[P]. 专利国别:专利号,出版日期.
+[8] 标准编号,标准名称[S].
+
+（摘自https://github.com/zepinglee/gbt7714-bibtex-style）
+文献类型            	标识代码	 Entry Type
+普通图书            	 M	     book
+图书的析出文献         M	     incollection
+会议录         	     C	     proceedings
+会议录的析出文献	     C	     inproceedings 或 conference
+汇编          	     G	     collection*
+报纸          	     N	     newspaper*
+期刊的析出文献         J	     article
+学位论文            	 D	     mastersthesis 或 phdthesis
+报告          	     R	     techreport
+标准	             S	     standard*
+专利	             P	     patent*
+数据库	             DB	     database*
+计算机程序	         CP	     software*
+电子公告	             EB	     online*
+档案	             A	     archive*
+舆图	             CM	     map*
+数据集	             DS	     dataset*
+其他	             Z	     misc
+
+著录项目（域）	        Entry Field
+主要责任者	            author
+题名	                title
+文献类型标识	            mark* 一般可自动识别
+载体类型标识	            medium*
+翻译者	                translator*
+编辑	                editor
+组织（用于会议）	        organization
+图书题名	                booktitle
+系列	                series
+期刊题名	                journal
+版本	                edition
+出版地	                address
+出版者	                publisher
+学校（用于 phdthesis）	school
+机构（用于 techreport）	institution
+出版年	                year
+卷	                    volume
+期（或者专利号）	        number
+引文页码              	pages
+更新或修改日期	        date*
+引用日期             	urldate*
+获取和访问路径          	url
+数字对象唯一标识符    	doi
+语言                  	langid*
+拼音（用于排序）        	key
